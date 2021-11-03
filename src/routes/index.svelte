@@ -1,8 +1,21 @@
-<script context="module">
-	export const prerender = 'true';
-</script>
-
 <script>
+	import { onMount } from 'svelte';
+	import { writable } from 'svelte/store'
+	import Saved from '../components/Saved.svelte'
+
+	let savedCol;
+
+	onMount(
+		async function(){
+			savedCol = JSON.parse(localStorage.getItem('savedCol')) ?? localStorage.setItem('savedCol', JSON.stringify([hex]));
+		}
+	)
+	const saveEm = (col) => {
+		const savedCol = JSON.parse(localStorage.getItem('savedCol'));
+		col = col.toString();
+		let newCol =JSON.stringify([...savedCol, col]);
+		localStorage.setItem('savedCol', newCol);
+	};
 	var sampleCol = [
 		'cyan',
 		'darkcyan',
@@ -34,6 +47,22 @@
 	<div class="show" style="background-color: {hex};">
 		<p class="kala-name">{hex}</p>
 	</div>
+
+	<div class="save">
+		<form on:submit={saveEm(hex)}>
+			<button type="submit" class="save-btn">Save Current Color</button>
+		</form>
+	</div>
+
+	<div class="saved">
+		{#if savedCol}
+			{#each savedCol as col}
+				 <Saved code={col} on:click={hex = col} />
+			{/each}
+		{:else}
+			<p>You haven't saved any colours yet.</p>
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -64,5 +93,21 @@
 		opacity: 0.5;
 		margin: auto auto;
 		text-transform: uppercase;
+	}
+	.save-btn {
+		background-color: #009732;
+		color: white;
+		border-left: 3px solid transparent;
+		transition: 0.25s ease-in-out;
+	}
+	.save-btn:hover {
+		background-color: #00c943;
+		border-left: 3px solid #01ff56;
+		box-shadow: #01ff5650 2px 2px 8px, #01ff5650 -2px -2px 8px;
+	}
+	.saved {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(122px, 1fr));
 	}
 </style>
