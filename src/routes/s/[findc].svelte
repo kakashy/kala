@@ -1,14 +1,24 @@
+<script context="module">
+	export function load({ page }) {
+		const { findc } = page.params;
+
+		return {
+			props: {
+				findColor: findc
+			}
+		};
+	}
+</script>
+
 <script>
 	import { onMount } from 'svelte';
-	import { writable } from 'svelte/store';
-	import Saved from '../components/Saved.svelte';
+	import Saved from '../../components/Saved.svelte';
+	export let findColor;
 
 	let savedCol;
 
 	onMount(async function () {
-		savedCol =
-			JSON.parse(localStorage.getItem('savedCol')) ??
-			localStorage.setItem('savedCol', JSON.stringify([hex]));
+		savedCol = JSON.parse(localStorage.getItem('savedCol'));
 	});
 	const saveEm = (col) => {
 		const savedCol = JSON.parse(localStorage.getItem('savedCol'));
@@ -16,40 +26,21 @@
 		let newCol = JSON.stringify([...savedCol, col]);
 		localStorage.setItem('savedCol', newCol);
 	};
-	var sampleCol = [
-		'cyan',
-		'darkcyan',
-		'red',
-		'fuchsia',
-		'teal',
-		'orange',
-		'brown',
-		'navajowhite',
-		'indigo',
-		'#111110',
-		'#ff304f',
-		'#12FF12',
-		'#FEFA10',
-		'#E810C5'
-	];
-	$: hex = sampleCol.sort(() => {
-		return 0.5 - Math.random();
-	})[0];
 </script>
 
 <svelte:head>
-	<title>KALA🎨</title>
+	<title>KALA🎨 - {findColor}</title>
 </svelte:head>
 
 <div>
-	<input type="text" class="hc" bind:value={hex} placeholder="Your hex color code" />
+	<input type="text" class="hc" bind:value={findColor} placeholder="Your hex color code" />
 
-	<div class="show" style="background-color: {hex};">
-		<p class="kala-name">{hex}</p>
+	<div class="show" style="background-color: {findColor};">
+		<p class="kala-name">{findColor}</p>
 	</div>
 
 	<div class="save">
-		<form on:submit={saveEm(hex)}>
+		<form on:submit={saveEm(findColor)}>
 			<button type="submit" class="save-btn">Save Current Color</button>
 		</form>
 	</div>
@@ -57,7 +48,7 @@
 	<div class="saved">
 		{#if savedCol}
 			{#each savedCol as col}
-				<Saved code={col} on:click={(hex = col)} />
+				<Saved code={col} on:click={(findColor = col)} />
 			{/each}
 		{:else}
 			<p>You haven't saved any colours yet.</p>
