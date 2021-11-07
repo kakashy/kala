@@ -42,7 +42,16 @@
 </svelte:head>
 
 <div>
-	<input type="text" class="hc" bind:value={hex} placeholder="Your hex color code" />
+	<div class="color-inputs">
+		<label>
+			Type in a colour value:
+			<input type="text" class="hc" bind:value={hex} placeholder="Your hex color code" />
+		</label>
+		<label>
+			Pick a color:
+			<input type="color" bind:value={hex} />
+		</label>
+	</div>
 
 	<div class="show" style="background-color: {hex};">
 		<p class="kala-name">{hex}</p>
@@ -82,6 +91,9 @@
 	}
 	.hc:focus {
 		border: 1px solid cyan;
+	}
+	.color-inputs {
+		padding: 5px;
 	}
 	.show {
 		height: 50vh;
