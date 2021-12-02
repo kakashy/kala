@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'cool';
+    src: url('./fonts/COOLVETI.TTF')
+}
 body {
     background-color: #0d0f12;
     color: white;
     margin: auto;
     font-size: 15px;
+    font-family: cool;
+    font-weight: 200;
 }
 
 button {
@@ -13,7 +19,9 @@ button {
     margin: 10px;
     cursor: pointer;
     font-size: inherit;
+    font-family: inherit;
 }
 input {
     font-size: inherit;
+    font-family: inherit;
 }
