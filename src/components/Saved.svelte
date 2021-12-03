@@ -2,7 +2,7 @@
 	export let code;
 </script>
 
-<a href="/s/{code}">
+<a href="/s/{encodeURIComponent(code)}">
 	<button style="border-left: 8px solid {code};" on:click>
 		{code}
 	</button>
