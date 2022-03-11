@@ -1,6 +1,7 @@
 <script context="module">
-	export function load({ page }) {
-		const { findc } = page.params;
+	/**@type import('@sveltejs/kit').Load*/
+	export function load({ params }) {
+		const { findc } = params;
 
 		return {
 			props: {
@@ -34,7 +35,10 @@
 
 <div>
 	<input type="text" class="hc" bind:value={findColor} placeholder="Your hex color code" />
-
+	<label>
+		Pick a color:
+		<input type="color" bind:value={findColor} />
+	</label>
 	<div class="show" style="background-color: {findColor};">
 		<p class="kala-name">{findColor}</p>
 	</div>
@@ -78,7 +82,7 @@
 		height: 50vh;
 		width: 90%;
 		border-radius: 4px;
-		box-shadow: #000000 2px 5px 10px;
+		box-shadow: #00000050 2px 5px 20px;
 	}
 	.kala-name {
 		opacity: 0.5;

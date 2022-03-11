@@ -99,7 +99,7 @@
 		height: 50vh;
 		width: 90%;
 		border-radius: 4px;
-		box-shadow: #000000 2px 5px 10px;
+		box-shadow: #00000030 2px 5px 20px;
 	}
 	.kala-name {
 		opacity: 0.5;

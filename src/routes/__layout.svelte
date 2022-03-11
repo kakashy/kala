@@ -1,14 +1,25 @@
+<script>
+	import '../app.css';
+</script>
+
 <header>
-	<p class="tairo">KALA</p>
+	<a href="/">
+		<p class="tairo">KALA</p>
+	</a>
 </header>
 
-<slot />
+<main>
+	<slot />
+</main>
 
 <footer>
 	&copy; {new Date().getYear() + 1900}, Waweru 🥵
 </footer>
 
 <style>
+	main {
+		padding: 15px 20px;
+	}
 	header {
 		width: 100%;
 		height: 70px;
