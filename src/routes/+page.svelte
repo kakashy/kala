@@ -53,7 +53,7 @@
 		</label>
 	</div>
 
-	<div class="show" style="background-color: {hex};">
+	<div class="show" style="background-color: {hex}; box-shadow: 1px 1px 50px -10px {hex};">
 		<p class="kala-name">{hex}</p>
 	</div>
 
@@ -99,7 +99,6 @@
 		height: 50vh;
 		width: 90%;
 		border-radius: 4px;
-		box-shadow: #00000030 2px 5px 20px;
 	}
 	.kala-name {
 		opacity: 0.5;
