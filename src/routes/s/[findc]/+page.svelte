@@ -1,20 +1,7 @@
-<script context="module">
-	/**@type import('@sveltejs/kit').Load*/
-	export function load({ params }) {
-		const { findc } = params;
-
-		return {
-			props: {
-				findColor: findc
-			}
-		};
-	}
-</script>
-
 <script>
+	$: ({ findColor } = data)
 	import { onMount } from 'svelte';
-	import Saved from '../../components/Saved.svelte';
-	export let findColor;
+	import Saved from '../../../components/Saved.svelte';
 
 	let savedCol;
 

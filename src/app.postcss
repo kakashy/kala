@@ -1,7 +1,9 @@
-@font-face {
-	font-family: 'cool';
-	src: url('./fonts/COOLVETI.TTF');
-}
+/* Write your global styles here, in PostCSS syntax */
+
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+
+@tailwind base;
+
 @media (prefers-color-scheme: light) {
 	:root {
 		--bg: navajowhite;
@@ -21,7 +23,7 @@ body {
 	color: var(--col);
 	margin: auto;
 	font-size: 15px;
-	font-family: cool;
+	font-family: 'Unbounded', cursive, sans-serif;
 	font-weight: 200;
 }
 
@@ -40,3 +42,5 @@ input {
 	font-size: inherit;
 	font-family: inherit;
 }
+@tailwind components;
+@tailwind utilities;

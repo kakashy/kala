@@ -1,9 +1,11 @@
 <script context="module">
-	export function load({ status }) {
-		return {
-			props: { status }
-		};
-	}
+	throw new Error("@migration task: Replace error load function (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3293209)");
+
+	// export function load({ status }) {
+	// 	return {
+	// 		props: { status }
+	// 	};
+	// }
 </script>
 
 <script>

@@ -41,7 +41,7 @@
 	<title>KALA🎨</title>
 </svelte:head>
 
-<div>
+<div class="flex flex-col gap-6">
 	<div class="color-inputs">
 		<label>
 			Type in a colour value:
@@ -105,6 +105,7 @@
 		opacity: 0.5;
 		margin: auto auto;
 		text-transform: uppercase;
+		mix-blend-mode: difference;
 	}
 	.save-btn {
 		background-color: #009732;

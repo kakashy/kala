@@ -1,8 +1,8 @@
 <script>
-	import '../app.css';
+	import '../app.postcss';
 </script>
 
-<header>
+<header class="bg-black/30 sticky top-0 left-0 backdrop-blur">
 	<a href="/">
 		<p class="tairo">KALA</p>
 	</a>
@@ -12,8 +12,8 @@
 	<slot />
 </main>
 
-<footer>
-	&copy; {new Date().getYear() + 1900}, Waweru 🥵
+<footer class="bg-white/10 backdrop-blur p-2 sticky bottom-0">
+	&#xa9; {new Date().getYear() + 1900}, Waweru &#x1f975;
 </footer>
 
 <style>
@@ -23,7 +23,6 @@
 	header {
 		width: 100%;
 		height: 70px;
-		background-color: black;
 		display: flex;
 		align-items: center;
 		justify-content: center;
