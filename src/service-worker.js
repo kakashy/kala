@@ -1,6 +1,6 @@
-import { build, timestamp, files } from '$service-worker';
-const applicationCache = `applicationCache-v${timestamp}`;
-const staticCache = `staticCache-v${timestamp}`;
+import { build, version, files } from '$service-worker';
+const applicationCache = `applicationCache-v${version}`;
+const staticCache = `staticCache-v${version}`;
 
 // Caches the svelte app (not the data)
 self.addEventListener('install', (event) => {
